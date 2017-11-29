@@ -7,16 +7,15 @@
 </head>
 
 <body>
-	<div id="header">
-
+	<div id="top_bar">
+	<div class="sName">Love<span>Letters</span></div>
 	<form>
-	Pseudo:<br>
-		<input type="text" name="pseudo"><br>
-	Mot de passe:<br>
-		<input type="password" name="mdp">
-		<input type="submit" id="connexion" value="Connexion">
+		<div class="login">
+			<input type="text" placeholder="Pseudo" name="pseudo"><br>
+			<input type="password" placeholder="Mot de passe" name="mdp"><br>
+			<input type="button" id="connexion" value="Connexion">
+		</div>
 	</form>
-	
 	<src="<?php echo base_url();?>js/connexion.js">
 	
 	</div>
