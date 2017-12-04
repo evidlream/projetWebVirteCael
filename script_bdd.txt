@@ -1,0 +1,238 @@
+DROP DATABASE IF EXISTS MLR3;
+
+CREATE DATABASE IF NOT EXISTS MLR3;
+USE MLR3;
+# -----------------------------------------------------------------------------
+#       TABLE : MAIN
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS MAIN
+ (
+   IDMAIN DB_INTEGER(10) NOT NULL  ,
+   IDROUND DB_INTEGER(10) NOT NULL  ,
+   ELIMINE DB_INTEGER(1) NOT NULL  ,
+   POSITIONTABLE DB_INTEGER(1) NOT NULL  
+   , PRIMARY KEY (IDMAIN) 
+ ) 
+ comment = "";
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE MAIN
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_MAIN_ROUND
+     ON MAIN (IDROUND ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : JOUEUR
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS JOUEUR
+ (
+   IDJOUEUR DB_INTEGER(10) NOT NULL  ,
+   PSEUDO DB_TEXT, 32 NOT NULL  ,
+   MOTDEPASSE DB_TEXT, 32 NOT NULL  
+   , PRIMARY KEY (IDJOUEUR) 
+ ) 
+ comment = "";
+
+# -----------------------------------------------------------------------------
+#       TABLE : ROUND
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS ROUND
+ (
+   IDROUND DB_INTEGER(10) NOT NULL  ,
+   IDPARTIE DB_INTEGER(10) NOT NULL  ,
+   CARTEDEFAUSSE DB_TEXT, 32 NOT NULL  ,
+   IDGAGNANT DB_TEXT, 32 NULL  
+   , PRIMARY KEY (IDROUND) 
+ ) 
+ comment = "";
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE ROUND
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_ROUND_PARTIE
+     ON ROUND (IDPARTIE ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : CARTE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS CARTE
+ (
+   IDCARTE DB_INTEGER(10) NOT NULL  ,
+   NOM DB_TEXT, 32 NOT NULL  ,
+   ILLUSTRATION DB_TEXT, 32 NOT NULL  ,
+   DESCRIPTION DB_TEXT, 32 NOT NULL  
+   , PRIMARY KEY (IDCARTE) 
+ ) 
+ comment = "";
+
+# -----------------------------------------------------------------------------
+#       TABLE : PARTIE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS PARTIE
+ (
+   IDPARTIE DB_INTEGER(10) NOT NULL  ,
+   NBJOUEUR DB_INTEGER(1) NULL  
+   , PRIMARY KEY (IDPARTIE) 
+ ) 
+ comment = "";
+
+# -----------------------------------------------------------------------------
+#       TABLE : PAQUET
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS PAQUET
+ (
+   IDCARTE DB_INTEGER(10) NOT NULL  ,
+   IDROUND DB_INTEGER(10) NOT NULL  ,
+   PLACEMENT DB_INTEGER(2) NOT NULL  
+   , PRIMARY KEY (IDCARTE,IDROUND) 
+ ) 
+ comment = "";
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE PAQUET
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_PAQUET_CARTE
+     ON PAQUET (IDCARTE ASC);
+
+CREATE  INDEX I_FK_PAQUET_ROUND
+     ON PAQUET (IDROUND ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : CONTIENT
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS CONTIENT
+ (
+   IDMAIN DB_INTEGER(10) NOT NULL  ,
+   IDCARTE DB_INTEGER(10) NOT NULL  ,
+   DEFFAUSE DB_INTEGER(1) NULL  ,
+   ORDREJEU DB_INTEGER(2) NULL  
+   , PRIMARY KEY (IDMAIN,IDCARTE) 
+ ) 
+ comment = "";
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE CONTIENT
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_CONTIENT_MAIN
+     ON CONTIENT (IDMAIN ASC);
+
+CREATE  INDEX I_FK_CONTIENT_CARTE
+     ON CONTIENT (IDCARTE ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : JOUE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS JOUE
+ (
+   IDPARTIE DB_INTEGER(10) NOT NULL  ,
+   IDJOUEUR DB_INTEGER(10) NOT NULL  
+   , PRIMARY KEY (IDPARTIE,IDJOUEUR) 
+ ) 
+ comment = "";
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE JOUE
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_JOUE_PARTIE
+     ON JOUE (IDPARTIE ASC);
+
+CREATE  INDEX I_FK_JOUE_JOUEUR
+     ON JOUE (IDJOUEUR ASC);
+
+# -----------------------------------------------------------------------------
+#       TABLE : DEFAUSSE
+# -----------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS DEFAUSSE
+ (
+   IDCARTE DB_INTEGER(10) NOT NULL  ,
+   IDROUND DB_INTEGER(10) NOT NULL  ,
+   ORDREDEFAUSSE DB_INTEGER(2) NULL  
+   , PRIMARY KEY (IDCARTE,IDROUND) 
+ ) 
+ comment = "";
+
+# -----------------------------------------------------------------------------
+#       INDEX DE LA TABLE DEFAUSSE
+# -----------------------------------------------------------------------------
+
+
+CREATE  INDEX I_FK_DEFAUSSE_CARTE
+     ON DEFAUSSE (IDCARTE ASC);
+
+CREATE  INDEX I_FK_DEFAUSSE_ROUND
+     ON DEFAUSSE (IDROUND ASC);
+
+
+# -----------------------------------------------------------------------------
+#       CREATION DES REFERENCES DE TABLE
+# -----------------------------------------------------------------------------
+
+
+ALTER TABLE MAIN 
+  ADD FOREIGN KEY FK_MAIN_ROUND (IDROUND)
+      REFERENCES ROUND (IDROUND) ;
+
+
+ALTER TABLE ROUND 
+  ADD FOREIGN KEY FK_ROUND_PARTIE (IDPARTIE)
+      REFERENCES PARTIE (IDPARTIE) ;
+
+
+ALTER TABLE PAQUET 
+  ADD FOREIGN KEY FK_PAQUET_CARTE (IDCARTE)
+      REFERENCES CARTE (IDCARTE) ;
+
+
+ALTER TABLE PAQUET 
+  ADD FOREIGN KEY FK_PAQUET_ROUND (IDROUND)
+      REFERENCES ROUND (IDROUND) ;
+
+
+ALTER TABLE CONTIENT 
+  ADD FOREIGN KEY FK_CONTIENT_MAIN (IDMAIN)
+      REFERENCES MAIN (IDMAIN) ;
+
+
+ALTER TABLE CONTIENT 
+  ADD FOREIGN KEY FK_CONTIENT_CARTE (IDCARTE)
+      REFERENCES CARTE (IDCARTE) ;
+
+
+ALTER TABLE JOUE 
+  ADD FOREIGN KEY FK_JOUE_PARTIE (IDPARTIE)
+      REFERENCES PARTIE (IDPARTIE) ;
+
+
+ALTER TABLE JOUE 
+  ADD FOREIGN KEY FK_JOUE_JOUEUR (IDJOUEUR)
+      REFERENCES JOUEUR (IDJOUEUR) ;
+
+
+ALTER TABLE DEFAUSSE 
+  ADD FOREIGN KEY FK_DEFAUSSE_CARTE (IDCARTE)
+      REFERENCES CARTE (IDCARTE) ;
+
+
+ALTER TABLE DEFAUSSE 
+  ADD FOREIGN KEY FK_DEFAUSSE_ROUND (IDROUND)
+      REFERENCES ROUND (IDROUND) ;
+
