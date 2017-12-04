@@ -10,7 +10,6 @@
 }
 
 .top_bar div{
-	position: absolute;
 	top: -20px;
 	left: -20px;
 	right: -40px;
@@ -71,7 +70,7 @@
 }
 
 .login input[type=button]{
-	width: 250px;
+	width: 125 px;
 	height: 30px;
 	background: #fff;
 	border: 1px solid #fff;
@@ -83,6 +82,9 @@
 	font-weight: 400;
 	padding: 6px;
 	margin-top: 8px;
+	margin-right: .5%;
+	margin-left: .5%;
+	width: 49%;
 }
 
 .login input[type=button]:hover{
