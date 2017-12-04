@@ -13,7 +13,7 @@
 		<div class="login">
 			<input type="text" placeholder="Pseudo" name="pseudo"><br>
 			<input type="password" placeholder="Mot de passe" name="mdp"><br>
-			<input type="button" id="connexion" value="Connexion">
+			<input type="button" id="connexion" value="Connexion"><input type="button" id="register" value="Inscription">
 		</div>
 	</form>
 	<src="<?php echo base_url();?>js/connexion.js">
