@@ -23,13 +23,13 @@ class joueur extends CI_Model{
 	}
 	
 	public function inscription($iden, $mdp){
-		if($this->db->simplequery('SELECT * FROM JOUEUR WHERE pseudo = '.$iden)){
-			return false;
-		}
-		else{
-			$this->db->simple_query('INSERT INTO JOUEUR VALUES(NULL,'.$iden.','.$mdp.')');
-			return true;
-		}
+		$res = $this->db->select('*')->from('joueur')->where('pseudo=',$iden)->get()->result_array();
+		if(empty($res))
+			{
+				$data = array('idJoueur'=>NULL,'motdePasse'=>$iden,'pseudo'=>$mdp);
+				$this->db->insert('joueur',$data);
+				return true;
+			}
 	}
 
 }
