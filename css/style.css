@@ -70,7 +70,7 @@
 }
 
 .login input[type=button]{
-	width: 125 px;
+	width: 250px;
 	height: 30px;
 	background: #fff;
 	border: 1px solid #fff;
@@ -82,9 +82,6 @@
 	font-weight: 400;
 	padding: 6px;
 	margin-top: 8px;
-	margin-right: .5%;
-	margin-left: .5%;
-	width: 49%;
 }
 
 .login input[type=button]:hover{
@@ -116,6 +113,71 @@
 ::-moz-input-placeholder{
    color: rgba(255,255,255,0.6);
 }
+
+.connect{
+	float:right;
+	width: 400px;
+	margin-top:20px;
+}
+
+.connect .userimage{
+	border: 2px solid;
+    border-color: #8F7514 #C9A932;
+    border-radius: 100%;
+    float: left;
+    height: 50px;
+    margin-right: 10px;
+    width: 50px;
+}
+
+.connect .username{
+	color: #f1e6d0;
+    font-size: 22px;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.7);
+    text-transform: uppercase;
+}
+
+.connect .victories{
+    color: #FFF;
+    font-family: arial;
+    font-size: 16px;
+    padding: 0 16px;
+    height: 32px;
+	font-size: 20px;
+    font-weight: 200;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.7);
+}
+
+.logout input[type=button]{
+	width: 250px;
+	height: 30px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 2px;
+	margin-left: 50px;
+}
+
+
+.logout input[type=button]:hover{
+	opacity: 0.8;
+}
+
+.logout input[type=button]:active{
+	opacity: 0.6;
+}
+
+.logout input[type=button]:focus{
+	outline: none;
+}
+
 /* ---------- </header> ---------- */
 
 
@@ -172,7 +234,7 @@ body{
 	margin-top: 8px;
 }
 
-.register input[type=button]{
+.register input[type=submit]{
 	width: 250px;
 	height: 30px;
 	background: #fff;
@@ -195,11 +257,11 @@ body{
 	color:red;
 }
 
-.register input[type=button]:hover{
+.register input[type=submit]:hover{
 	opacity: 0.8;
 }
 
-.register input[type=button]:active{
+.register input[type=submit]:active{
 	opacity: 0.6;
 }
 
@@ -213,7 +275,7 @@ body{
 	border: 1px solid rgba(255,255,255,0.9);
 }
 
-.register input[type=button]:focus{
+.register input[type=submit]:focus{
 	outline: none;
 }
 
