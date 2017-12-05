@@ -9,13 +9,16 @@
 <body>
 	<div id="top_bar">
 	<div class="sName">Love<span>Letters</span></div>
-	<form>
-		<div class="login">
-			<input type="text" placeholder="Pseudo" name="pseudo"><br>
-			<input type="password" placeholder="Mot de passe" name="mdp"><br>
-			<input type="button" id="connexion" value="Connexion"><input type="button" id="register" value="Inscription">
+		<div class="connect">
+			<img class="userimage" src="http://fr.seaicons.com/wp-content/uploads/2016/03/User-green-icon.png">
+			<div class="username"> Nom d'utilisateur</div>
+			<div class="victories"> Nombre de victoires: 2</div>
+			<form>
+				<div class="logout">
+					<input type="button" id="deconnexion" value="Deconnexion">
+				</div>
+			</form>
 		</div>
-	</form>
 	<src="<?php echo base_url();?>js/connexion.js">
 	
 	</div>
