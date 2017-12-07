@@ -5,6 +5,7 @@
 	top:0px;
 	left:0px;
 	height:120px;
+	z-index: 200;
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(140, 34, 38,1)), color-stop(50%,rgba(240,34,37,1)));
 	box-shadow: 0 1px 0 rgba(12,13,14,0.1), 0 1px 3px rgba(12,13,14,0.1), 0 4px 35px rgba(12,13,14,0.035), 0 1px 1px rgba(12,13,14,0.025);
 }
@@ -17,7 +18,6 @@
 	width: auto;
 	height: auto;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
-	z-index: 1;
 	opacity: 0.7;
 }
 
@@ -312,6 +312,152 @@ body{
 	border-radius: 10px;
 	-khtml-border-radius: 10px;
 }
+
+.join input[type=submit]{
+	margin: 0 auto;
+	display: block;
+	width: 250px;
+	height: 30px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 8px;
+}
+
+.game {
+	display:block;
+	width:100%;
+	height:75vh !important;
+	overflow:hidden;
+}
+
+.game .dispCard{
+    height: 180px;
+    width: 120px;
+	position: absolute;
+	visibility: visible; 
+	z-index: 30; 
+}
+
+.game .nparea{
+	position:absolute;
+	right: 33%;
+	top: 39%;
+}
+
+.game .handCard{
+    height: 120px;
+    width: 80px;
+}
+/*
+.game .handCard:hover{
+    width:200px;
+    height:auto;
+    z-index:999;
+}*/
+
+.game .playername{
+	position: absolute;
+	visibility: visible; 
+	z-index: 30; 
+	font-size: 20px;
+}
+
+.game .pcInHand{
+	position: absolute;
+	visibility: visible; 
+	z-index: 30; 
+}
+
+.p1area .playedCard .dispCard{
+	left: 25%;
+	top: 55%;
+}
+
+.p2area .playedCard .dispCard{
+	right: 25%;
+	top: 15%;
+}
+
+.p3area .playedCard .dispCard{
+	left: 10%;
+	top: 15%;
+}
+
+.p4area .playedCard .dispCard{ 
+	right: 10%;
+	top: 55%;
+}
+
+.p1area .pcInHand{
+	left: 40%;
+	top: 60%;
+}
+
+.p2area .pcInHand{
+	right: 40%;
+	top: 15%;
+}
+
+.p3area .pcInHand{
+	left: 10%;
+	top: 35%;
+}
+
+.p4area .pcInHand{
+	right: 10%;
+	top: 28%;
+}
+
+.p4area div[value="2"]{
+	top: 28%;
+}
+
+.p4area div[value="1"]{
+	top: 41%;
+}
+
+.p4area div[value="3"]{
+	top: 14.5%;
+}
+
+.p3area .pcInHand img, .p4area .pcInHand img{
+display: block;
+margin-bottom:2px;	
+	
+}
+
+.p1area .playername{
+	left: 28%;
+	top: 76%;
+}
+
+.p2area .playername{
+	right: 28%;
+	top: 12%;
+}
+
+.p3area .playername{
+	left: 13%;
+	top: 12%;
+}
+
+.p4area .playername{
+	right: 13%;
+	top: 76%;
+}
+
+.bannedCard img{
+	filter: grayscale(80%);
+}
+
+
 
 /*---------- body ----------*/
 
