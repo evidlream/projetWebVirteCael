@@ -184,10 +184,12 @@
 /* ---------- Body and so on ----------*/
 body{
 	position: absolute;
+	background-image: url(https://i.imgur.com/5oKF545.jpg); /* http://bgfons.com/uploads/velvet/velvet_texture1777.jpg */
     left: 0px;
     right: 0px;
     top: 50px;
-    margin: auto;
+	margin: auto;
+    margin-left:30%;
     width: 900px;
     border-radius: 15px;
     box-shadow: 0 0 30px #ffb9b9, 0 0 90px rgba(255,255,255,.3) inset;
@@ -199,7 +201,7 @@ body{
 	margin-bottom:-70px;
 	background-color: #af1323;
 	background-size: cover;
-	background-image: url(https://i.imgur.com/5oKF545.jpg); /* http://bgfons.com/uploads/velvet/velvet_texture1777.jpg */
+	
 }
 
 /*---------- registration ----------*/
@@ -333,16 +335,17 @@ body{
 .game {
 	display:block;
 	width:100%;
-	height:75vh !important;
+	height:80vh !important;
 	overflow:hidden;
 }
 
 .game .dispCard{
-    height: 180px;
-    width: 120px;
+    max-height: 180px;
+    max-width: 120px;
 	position: absolute;
 	visibility: visible; 
 	z-index: 30; 
+	box-shadow: 0 0 30px #ffb9b9, 0 0 90px rgba(255,255,255,.3) inset;
 }
 
 .game .nparea{
@@ -351,9 +354,15 @@ body{
 	top: 39%;
 }
 
+.game  .discardpile{
+	position:absolute;
+	left: 28%;
+	top: 33%;
+}
+
 .game .handCard{
-    height: 120px;
-    width: 80px;
+	max-height: 120px;
+    max-width: 80px;
 }
 /*
 .game .handCard:hover{
@@ -374,7 +383,7 @@ body{
 	visibility: visible; 
 	z-index: 30; 
 }
-
+/*
 .p1area .playedCard .dispCard{
 	left: 25%;
 	top: 55%;
@@ -394,43 +403,48 @@ body{
 	right: 10%;
 	top: 55%;
 }
-
+*/
 .p1area .pcInHand{
-	left: 40%;
+	left: 30%;
 	top: 60%;
 }
 
 .p2area .pcInHand{
-	right: 40%;
+	right: 30%;
 	top: 15%;
 }
 
 .p3area .pcInHand{
 	left: 10%;
-	top: 35%;
+	top: 30%;
 }
 
 .p4area .pcInHand{
 	right: 10%;
-	top: 28%;
+	top: 20%;
 }
 
-.p4area div[value="2"]{
-	top: 28%;
+.p1area .pcInHand img,.p2area .pcInHand img{
+	margin-right:10px;
+}
+.p3area .pcInHand img{
+	display: block;
+	margin-bottom:-20px;	
+	-webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
-.p4area div[value="1"]{
-	top: 41%;
-}
-
-.p4area div[value="3"]{
-	top: 14.5%;
-}
-
-.p3area .pcInHand img, .p4area .pcInHand img{
-display: block;
-margin-bottom:2px;	
-	
+.p4area .pcInHand img{
+	display: block;
+	margin-bottom:-20px;
+	-webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
 }
 
 .p1area .playername{
@@ -457,6 +471,44 @@ margin-bottom:2px;
 	filter: grayscale(80%);
 }
 
+.sidenav {
+	height:84%;
+	width: 25%;
+	position: fixed;
+	z-index: 1;
+	top: 120px;
+	left: 0;
+	overflow-x: hidden;
+	padding-top: 20px;
+	text-align:center;
+	
+}
+
+.sidenav .displayCard{
+    width: 80%;
+	height: auto;
+	float: center;
+}
+
+i {
+    border: solid #fff;
+    border-width: 0 7px 7px 0;
+    display: inline-block;
+    padding: 20px;
+}
+.arrowd{
+	bottom: 0;
+    width: 100%;
+}
+.arrowup {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.arrowdown {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
 
 
 /*---------- body ----------*/
