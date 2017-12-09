@@ -14,6 +14,7 @@
 
 			if($this->form_validation->run() == false){
 				$_SESSION['message'] = validation_errors();
+				$this->load->view('message');
 			}
 			else{
 				if ($_SESSION['connect'] = $this->joueur->connexion($this->input->post("connect_pseudo"),$this->input->post("connect_mdp")))
