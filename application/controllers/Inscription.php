@@ -13,13 +13,17 @@
 			$this->load->database();
 
 			if($this->form_validation->run() == false){
-				echo 'erreur';
+				$_SESSION['message'] = 'Erreur dans la saisie des champs.';
 			}
 			else{
-				if ($this->joueur->inscription($this->input->post("pseudo"),$this->input->post("mdp")))
-					echo 'inscrit';
+				if ($this->joueur->inscription($this->input->post("pseudo"),$this->input->post("mdp"))){
+					$_SESSION['message'] = 'Inscription réussie, vous pouvez maintenant vous connecter.';
+				}
+				else{
+					$_SESSION['message'] = 'Pseudo déjà existant.';
+				}
 			}
-
+			$this->load->view('message');
 		}
-}
+	}
 ?>

@@ -1,11 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-include("header.php");
 ?>
 <div class="body"></div>
 <script src="<?php echo base_url();?>js/register.js"></script>
-<div id="container">
+<div id="container" style='text-align:center'>
 	<h1>Inscription</h1>
 	<div class="contents">
 	<?php $this->load->helper('form');
@@ -21,7 +19,3 @@ include("header.php");
 	</div>
 	
 </div>
-
-<?php 
-include("footer.php");
-?>
