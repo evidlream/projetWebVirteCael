@@ -2,12 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="body"></div>
-<script src="<?php echo base_url();?>js/register.js"></script>
 <div id="container" style='text-align:center'>
 	<h1>Inscription</h1>
 	<div class="contents">
 	<?php $this->load->helper('form');
-		  echo validation_errors();
 		  echo form_open('/inscription');?>
 		<div class="register">
 			Nom d'utilisateur: <br><input type="text" placeholder="Pseudo" name="pseudo" required><br>

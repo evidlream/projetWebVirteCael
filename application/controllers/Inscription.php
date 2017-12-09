@@ -13,7 +13,7 @@
 			$this->load->database();
 
 			if($this->form_validation->run() == false){
-				$_SESSION['message'] = 'Erreur dans la saisie des champs.';
+				$_SESSION['message'] = validation_errors();
 			}
 			else{
 				if ($this->joueur->inscription($this->input->post("pseudo"),$this->input->post("mdp"))){

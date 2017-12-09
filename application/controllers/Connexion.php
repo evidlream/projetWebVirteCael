@@ -13,7 +13,7 @@
 			$this->load->database();
 
 			if($this->form_validation->run() == false){
-				echo 'erreur';
+				echo validation_errors();
 			}
 			else{
 				if ($this->joueur->inscription($this->input->post("pseudo"),$this->input->post("mdp")))

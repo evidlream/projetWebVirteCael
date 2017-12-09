@@ -9,7 +9,6 @@ include("header.php");
 ?>
 <div id="container">
 	<?php 
-		//$this->load->helper('form');
 		if(!empty($_SESSION['connect']))
 			include 'jeux.php';
 		else include 'inscription.php';?>

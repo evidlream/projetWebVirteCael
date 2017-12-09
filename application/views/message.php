@@ -8,7 +8,7 @@ include("header.php");
 <div id="container">
 	<h1>Inscription</h1>
 	<div class="contents" style='text-align:center;'>
-		<?php session_start(); echo($_SESSION['message']);?>
+		<?php echo($_SESSION['message']);?>
 	</div>
 	
 </div>
