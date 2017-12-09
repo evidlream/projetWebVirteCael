@@ -412,9 +412,13 @@ body{
 .c12{
 	left: 88px;
 }
+.c13{
+	left: 176px;
+}
 
 .c11, .c12, .c13 {
 	position:absolute;
+	z-index: 40;
 }
 
 .p2area .pcInHand{
