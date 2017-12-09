@@ -1,26 +1,37 @@
 <?php
-	class Inscription extends CI_Controller {
+	class Connexion extends CI_Controller {
 
 		public function index()
 		{
+			session_start();
 			$this->load->helper(array('form','url'));
 			$this->load->library('form_validation');
 			$this->load->model('joueur');
 			
-			$this->form_validation->set_rules('pseudo','Identifiant','required');
-			$this->form_validation->set_rules('mdp','Mot de passe','required');
-			$this->form_validation->set_rules('cmdp','Confirmation mot de passe','required|matches[mdp]');
+			$this->form_validation->set_rules('connect_pseudo','Identifiant','required');
+			$this->form_validation->set_rules('connect_mdp','Mot de passe','required');
 			$this->load->database();
 
 			if($this->form_validation->run() == false){
-				echo validation_errors();
+				$_SESSION['message'] = validation_errors();
 			}
 			else{
-				if ($this->joueur->inscription($this->input->post("pseudo"),$this->input->post("mdp")))
-					echo 'connecté';
-				else echo 'erreur';
+				if ($_SESSION['connect'] = $this->joueur->connexion($this->input->post("connect_pseudo"),$this->input->post("connect_mdp")))
+					$this->load->view('accueil');
+				else{
+					$_SESSION['message'] = 'Erreur de connexion, mauvais mot de passe ou pseudo.';
+					$this->load->view('message');
+				}
 			}
 
 		}
-}
+		
+		public function deconnexion()
+		{
+			session_start();
+			$this->load->helper(array('form','url'));
+			$_SESSION['connect'] = "";
+			$this->load->view("accueil");
+		}
+	}
 ?>

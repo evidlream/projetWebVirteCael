@@ -5,6 +5,7 @@ class Accueil extends CI_Controller {
 
 	public function index()
 	{
+		session_start();
 		$this->load->helper('url');
 		$this->load->model('joueur');
 		$this->load->view('accueil');

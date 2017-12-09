@@ -1,20 +1,14 @@
 <?php
 class joueur extends CI_Model{
 	
-	private $pseudo;
-	private $motDePasse;
-	
 	public function __construct(){
 		parent::__construct();
-		$pseudo ="";
-		$motDePasse="";
 	}
 	
 	public function connexion($iden, $mdp){
-		if($this->db->simple_query('SELECT * FROM JOUEUR WHERE motDePasse = '.$mdp.' AND pseudo = '.$iden))
+		$res = $this->db->select('*')->from('joueur')->where('pseudo=',$iden)->where('motDePasse',$mdp)->get()->result_array();
+		if(!empty($res))
 		{
-			$pseudo = $iden;
-			$motdePasse = $mdp;
 			return true;
 		}
 		else{

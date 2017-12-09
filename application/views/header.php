@@ -18,20 +18,20 @@
 			<div class="username"> Nom d\'utilisateur</div>
 			<div class="victories"> Nombre de victoires: 2</div>
 			'.
-			form_open("/deconnexion").'
+			form_open("/connexion/deconnexion").'
 				<div class="logout">
-					<input type="button" id="deconnexion" value="Deconnexion">
+					<input type="submit" id="deconnexion" value="Deconnexion">
 				</div>
 			</form>
 		</div>';
 	else echo '
 		<a href="/"><div class="sName">Love<span>Letters</span></div></a>'.
-		  form_open("/connexion").'
+		form_open("/connexion").'
 		<div class="login">
 			<input type="text" placeholder="Pseudo" name="connect_pseudo"><br>
 			<input type="password" placeholder="Mot de passe" name="connect_mdp"><br>
-			<input type="button" id="connexion" value="Connexion">
+			<input type="submit" id="connexion" value="Connexion">
 		</div>
-	</form>
+		</form>
 	'?>
 	</div>

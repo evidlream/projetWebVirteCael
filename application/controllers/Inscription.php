@@ -3,6 +3,7 @@
 
 		public function index()
 		{
+			session_start();
 			$this->load->helper(array('form','url'));
 			$this->load->library('form_validation');
 			$this->load->model('joueur');
