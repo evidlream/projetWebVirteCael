@@ -17,8 +17,11 @@
 				$this->load->view('message');
 			}
 			else{
-				if ($_SESSION['connect'] = $this->joueur->connexion($this->input->post("connect_pseudo"),$this->input->post("connect_mdp")))
+				if ($_SESSION['connect'] = $this->joueur->connexion($this->input->post("connect_pseudo"),$this->input->post("connect_mdp"))){
+					$_SESSION['connect'] = $this->input->post("connect_pseudo");
+					$_SESSION['victoire'] = $this->joueur->score($this->input->post("connect_pseudo"));
 					$this->load->view('accueil');
+				}
 				else{
 					$_SESSION['message'] = 'Erreur de connexion, mauvais mot de passe ou pseudo.';
 					$this->load->view('message');

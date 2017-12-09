@@ -5,7 +5,8 @@ include("header.php");
 ?>
 <div class="body"></div>
 <?php
-	include("sidemenu.php");
+	if(!empty($_SESSION['connect']))
+		include("sidemenu.php");
 ?>
 <div id="container">
 	<?php 

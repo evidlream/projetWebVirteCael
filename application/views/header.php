@@ -15,8 +15,8 @@
 	<a href="/"><div class="sName">Love<span>Letters</span></div></a>
 		<div class="connect">
 			<img class="userimage" src="http://fr.seaicons.com/wp-content/uploads/2016/03/User-green-icon.png">
-			<div class="username"> Nom d\'utilisateur</div>
-			<div class="victories"> Nombre de victoires: 2</div>
+			<div class="username"> '.$_SESSION["connect"].'</div>
+			<div class="victories"> Nombre de victoires: '.$_SESSION['victoire'].'</div>
 			'.
 			form_open("/connexion/deconnexion").'
 				<div class="logout">
