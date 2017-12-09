@@ -467,7 +467,7 @@ body{
 	top: 76%;
 }
 
-.bannedCard img{
+.removed img{
 	filter: grayscale(80%);
 }
 
@@ -476,9 +476,8 @@ body{
 	width: 25%;
 	position: fixed;
 	z-index: 1;
-	top: 120px;
+	top: 140px;
 	left: 0;
-	overflow-x: hidden;
 	padding-top: 20px;
 	text-align:center;
 	
