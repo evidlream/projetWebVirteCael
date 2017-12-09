@@ -65,16 +65,15 @@ include("header.php");
 					<img class="dispCard" id="xxx" value="visible" src="<?php echo base_url();?>img/9slot.png">
 			</div>
 			<div class="nparea">
-				
-				<div class="bannedCard">
+				<div class="removed">
 					<img class="handCard" id="xxx" value="visible" src="<?php echo base_url();?>img/3baron.png">
 					<img class="handCard" id="xxx" value="visible" src="<?php echo base_url();?>img/3baron.png">
 					<img class="handCard" id="xxx" value="visible" src="<?php echo base_url();?>img/3baron.png">
 
 				</div>
 				<div class="stackpile">
+					Carte restantes : 3
 				</div>
-			<script src="<?php echo base_url();?>js/playedCard.js"></script>
 			</div>
 		</div>
 	</form>
