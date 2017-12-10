@@ -9,10 +9,10 @@ class joueur extends CI_Model{
 		$res = $this->db->select('*')->from('joueur')->where('pseudo',$iden)->where('motDePasse',$mdp)->get()->result_array();
 		if(!empty($res))
 		{
-			return true;
+			return $res[0]['IDJOUEUR'];
 		}
 		else{
-			return false;
+			return 0;
 		}
 	}
 	

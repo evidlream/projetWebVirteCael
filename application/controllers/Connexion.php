@@ -17,7 +17,7 @@
 				$this->load->view('message');
 			}
 			else{
-				if ($_SESSION['connect'] = $this->joueur->connexion($this->input->post("connect_pseudo"),$this->input->post("connect_mdp"))){
+				if ($_SESSION['idJoueur'] = $this->joueur->connexion($this->input->post("connect_pseudo"),$this->input->post("connect_mdp"))){
 					$_SESSION['connect'] = $this->input->post("connect_pseudo");
 					$_SESSION['victoire'] = $this->joueur->score($this->input->post("connect_pseudo"));
 					$this->load->view('accueil');
@@ -35,6 +35,7 @@
 			session_start();
 			$this->load->helper(array('form','url'));
 			$_SESSION['connect'] = "";
+			$_SESSION['idJoueur'] = "";
 			$this->load->view("accueil");
 		}
 	
