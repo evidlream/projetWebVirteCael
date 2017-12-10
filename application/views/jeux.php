@@ -65,7 +65,7 @@
 				</div>
 			
 			</div>
-			<div class="discardpile">
+			<div class="discardpile" id="dlpc">
 					<img class="dispCard" id="lpc" value="visible" src="<?php echo base_url();?>img/9slot.png">
 			</div>
 			<div class="nparea">
