@@ -37,5 +37,6 @@
 			$_SESSION['connect'] = "";
 			$this->load->view("accueil");
 		}
+	
 	}
 ?>

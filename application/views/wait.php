@@ -1,3 +1,6 @@
+<?php
+include('header.php');?>
+
 <div class="contents" style="text-align:center;">
 	Joueurs en attente pour ce type de partie:
 	</br>
@@ -5,3 +8,6 @@
 		Yourself </br>
 	</div>
 </div>
+
+
+<?php include('footer.php');?>
