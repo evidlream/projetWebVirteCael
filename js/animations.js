@@ -16,7 +16,7 @@ function playCard(cardID) {
 	if ( verdiff => 0 ) {
 		var vch =  verdiff +30 ;
 	} else {
-		var vch = rectc.top - verdiff;
+		var vch = verdiff +30;
 	}
 	
 	if (hordiff => 0) {
@@ -34,4 +34,21 @@ function playCard(cardID) {
 function drawCard(){
 	
 	
+}
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+function eliminate(player){
+	var i;
+	for (i=1; i<4;i++){
+		var card = document.getElementById("c"+player+i);
+		card.style.filter= "grayscale(80%)";
+	}
 }
