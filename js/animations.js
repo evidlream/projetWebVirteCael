@@ -1,38 +1,37 @@
 var i;
 
 function playCard(cardID) {
-	var dip = document.getElementById("lpc");
+	var dip = document.getElementById("dlpc");
 	var card = document.getElementById("d"+cardID);
 	
-	var verdiff =  dip.height - card.height;
-	var hordiff = dip.weight - card.weight;
+	var card1 = document.getElementById("dc11");
 	
-	if ( (verdiff => 0 )&& (hordiff => 0)){
-		Velocity(card, {
-			bottom: (verdiff+30)+'px',
-			right: (hordiff+30)+'px'
-		}, 1000);
-	} else if (verdiff=>0 && hordiff<0) {
-		Velocity(card, {
-			bottom: (verdiff+30)+'px',
-			left: (hordiff+30)+'px'
-		}, 1000);
-	} else if ((verdiff < 0) && (hordiff => 0)) {
-		Velocity(card, {
-			top: (verdiff+30)+'px',
-			right: (hordiff+30)+'px'
-		}, 1000);
-	} else {	
-		Velocity(card, {
-			top: (verdiff+30)+'px',
-			left: (hordiff+30)+'px'
-		}, 1000);
+	var rectd = dip.getBoundingClientRect();
+	var rectc = card1.getBoundingClientRect();
+	
+	var verdiff =  rectd.top - rectc.top;
+		
+	var hordiff = rectd.left - rectc.left;
+	
+	if ( verdiff => 0 ) {
+		var vch =  verdiff +30 ;
+	} else {
+		var vch = rectc.top - verdiff;
 	}
+	
+	if (hordiff => 0) {
+		var hch = hordiff + 20;
+	} else {
+		var hch = rectc.left + hordiff;
+	}
+	
+	Velocity(card, {
+			top: vch+'px',
+			left: hch+'px'
+		}, 1000);
 }
 
 function drawCard(){
-	
-	
 	
 	
 }
