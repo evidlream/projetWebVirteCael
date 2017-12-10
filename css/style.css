@@ -422,8 +422,20 @@ body{
 }
 
 .p2area .pcInHand{
-	right: 30%;
+	left: 40%;
 	top: 15%;
+}
+
+.c22{
+	left: 88px;
+}
+.c23{
+	left: 176px;
+}
+
+.c21, .c22, .c23 {
+	position:absolute;
+	z-index: 40;
 }
 
 .p3area .pcInHand{
