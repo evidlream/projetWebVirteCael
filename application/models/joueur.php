@@ -28,6 +28,7 @@ class joueur extends CI_Model{
 	
 	public function score($iden){
 		$temp = $this->db->select('*')->from('joueur')->where('pseudo',$iden)->get()->result_array();
+		//requete test en attendant de l'implementation de la victoire
 		$res = $this->db->select('count(*) as nb')->from('joue')->where('idjoueur',$temp[0]["IDJOUEUR"])->get()->result_array();
 		return $res[0]["nb"];
 	}

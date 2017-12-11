@@ -25,7 +25,9 @@
 			else{
 				if($partie > 0){
 					$_SESSION['idPartie'] = $partie;
-					redirect();
+					echo '<script type="text/javascript">
+					window.location.href = "'.base_url().'";
+					</script>';
 				}
 			}
 		}

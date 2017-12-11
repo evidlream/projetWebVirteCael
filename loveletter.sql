@@ -100,20 +100,6 @@ CREATE TABLE `joue` (
   `IDJOUEUR` int(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `joue`
---
-
-INSERT INTO `joue` (`IDPARTIE`, `Fini`, `IDJOUEUR`) VALUES
-(7, 0, 1),
-(7, 0, 5),
-(8, 0, 1),
-(8, 0, 5),
-(9, 0, 1),
-(9, 0, 5),
-(10, 0, 1),
-(10, 0, 5);
-
 -- --------------------------------------------------------
 
 --
@@ -125,14 +111,6 @@ CREATE TABLE `joueur` (
   `PSEUDO` varchar(32) NOT NULL,
   `MOTDEPASSE` varchar(32) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `joueur`
---
-
-INSERT INTO `joueur` (`IDJOUEUR`, `PSEUDO`, `MOTDEPASSE`) VALUES
-(1, 'test', 'test'),
-(5, 'test2', 'test2');
 
 -- --------------------------------------------------------
 
@@ -173,12 +151,6 @@ CREATE TABLE `partie` (
 --
 -- Déchargement des données de la table `partie`
 --
-
-INSERT INTO `partie` (`IDPARTIE`, `NBJOUEUR`) VALUES
-(7, 2),
-(8, 2),
-(9, 2),
-(10, 2);
 
 -- --------------------------------------------------------
 
