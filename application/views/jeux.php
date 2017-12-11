@@ -1,3 +1,4 @@
+	<?php include('header.php');?>
 	<h1>Jouer</h1>
 	<script src="<?php echo base_url();?>js/velocity.min.js"></script>
 	<script src="<?php echo base_url();?>js/animations.js"></script>
@@ -82,3 +83,5 @@
 		</div>
 	</form>
 	</div>
+	
+	<?php include('footer.php');?>

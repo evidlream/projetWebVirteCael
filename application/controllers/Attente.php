@@ -18,10 +18,15 @@
 			$this->load->helper(array('form','url'));
 			$this->load->model('Model_Attente');
 			$temp = $this->Model_Attente->nbAttente($nb);
-			if($temp < $nb)
+			$this->load->model('Model_Partie');
+			$partie = $this->Model_Partie->existePartie($_SESSION['idJoueur']);
+			if($temp < $nb && $partie == 0)
 				echo $temp."/".$nb;
 			else{
-				echo "aa";
+				if($partie > 0){
+					$_SESSION['idPartie'] = $partie;
+					redirect();
+				}
 			}
 		}
 		

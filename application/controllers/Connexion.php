@@ -20,7 +20,11 @@
 				if ($_SESSION['idJoueur'] = $this->joueur->connexion($this->input->post("connect_pseudo"),$this->input->post("connect_mdp"))){
 					$_SESSION['connect'] = $this->input->post("connect_pseudo");
 					$_SESSION['victoire'] = $this->joueur->score($this->input->post("connect_pseudo"));
-					$this->load->view('accueil');
+					$this->load->model('Model_Partie');
+					$_SESSION['idPartie'] = $this->Model_Partie->existePartie($_SESSION['idJoueur']);
+					if($_SESSION['idPartie'] > 0)
+						$this->load->view('jeux');
+					else $this->load->view('accueil');
 				}
 				else{
 					$_SESSION['message'] = 'Erreur de connexion, mauvais mot de passe ou pseudo.';
@@ -36,6 +40,7 @@
 			$this->load->helper(array('form','url'));
 			$_SESSION['connect'] = "";
 			$_SESSION['idJoueur'] = "";
+			$_SESSION['idPartie'] = "";
 			$this->load->view("accueil");
 		}
 	

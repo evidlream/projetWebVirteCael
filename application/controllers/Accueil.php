@@ -8,7 +8,10 @@ class Accueil extends CI_Controller {
 		session_start();
 		$this->load->helper('url');
 		$this->load->model('joueur');
-		$this->load->view('accueil');
-
+		if(!empty($_SESSION['idPartie'])){
+			$this->load->view('jeux');
+		}
+		else $this->load->view('accueil');
+		
 	}
 }
